@@ -1,0 +1,26 @@
+{
+  "name": "Linux Homebrew",
+  "image": "ghcr.io/homebrew/brew:latest",
+  "remoteUser": "linuxbrew",
+  "postCreateCommand": "mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/codeman99 && ln -s ${containerWorkspaceFolder} /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/codeman99/homebrew-tap",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "[ruby]": {
+          "editor.defaultFormatter": "Shopify.ruby-lsp",
+          "editor.formatOnSave": true
+        }
+      },
+      "extensions": [
+        "Shopify.ruby-lsp",
+        "misogi.ruby-rubocop"
+      ]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": false,
+      "username": "linuxbrew"
+    }
+  }
+}
