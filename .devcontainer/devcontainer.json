@@ -2,7 +2,10 @@
   "name": "Linux Homebrew",
   "image": "ghcr.io/homebrew/brew:latest",
   "remoteUser": "linuxbrew",
-  "postCreateCommand": "mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/codeman99 && ln -s ${containerWorkspaceFolder} /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/codeman99/homebrew-tap",
+  "postCreateCommand": {
+    "link": "mkdir -p /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/codeman99 && ln -s ${containerWorkspaceFolder} /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/codeman99/homebrew-tap && brew trust codeman99/tap",
+    "devmode": "brew developer on"
+  },
   "customizations": {
     "vscode": {
       "settings": {
